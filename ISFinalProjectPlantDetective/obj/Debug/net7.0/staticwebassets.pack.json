@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Programming Files\\ISFinalProjectPlantDetective\\ISFinalProjectPlantDetective\\wwwroot\\images\\background.jpg",
+      "PackagePath": "staticwebassets\\images\\background.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.ISFinalProjectPlantDetective.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.ISFinalProjectPlantDetective.props",
+      "PackagePath": "build\\ISFinalProjectPlantDetective.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.ISFinalProjectPlantDetective.props",
+      "PackagePath": "buildMultiTargeting\\ISFinalProjectPlantDetective.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.ISFinalProjectPlantDetective.props",
+      "PackagePath": "buildTransitive\\ISFinalProjectPlantDetective.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

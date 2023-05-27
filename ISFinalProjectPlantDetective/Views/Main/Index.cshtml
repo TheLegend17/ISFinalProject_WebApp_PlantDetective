@@ -1,0 +1,223 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Detective</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navigationBar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            background-color: #a8e063;
+            background-image: linear-gradient(to bottom right, #a8e063, #56ab2f);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #000;
+            margin: 0;
+        }
+
+        .navigationBar a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #000;
+            transition: color 0.3s ease;
+        }
+
+            .navigationBar a:hover {
+                color: #007bff;
+            }
+
+        .content {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .catchPhrase {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .overview {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .uploadPicture {
+            margin-top: 40px;
+        }
+
+        .tryPlantDetective {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .selectBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            margin-top: 100px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+            .selectBtn:hover {
+                background-color: #0056b3;
+            }
+
+        .dragHover {
+            background-color: #f7f7f7;
+            border: 2px dashed #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigationBar">
+            <h3 class="title">Plant Detective</h3>
+            <a>Crowd Sourcing</a>
+            <a>Geo-Location</a>
+            <a>Profile</a>
+            <a>History</a>
+        </div>
+        <div class="content">
+            <h4 class="catchPhrase">Discover, Decode, and Delight in the World of Plants with Plant Detective!</h4>
+            <p class="overview">
+                Plant Detective is an innovative and user-friendly application that aims to empower plant enthusiasts and nature lovers in their exploration of the plant world. With its advanced features and extensive plant database, Plant Detective provides a comprehensive platform for plant identification, information, and community engagement.
+
+                At the core of Plant Detective is its powerful plant identification capability. Users can simply upload images or provide descriptions of plants they come across, and the application utilizes cutting-edge image recognition technology to accurately identify the plant species. This feature is incredibly useful for both casual nature observers and avid botanists, allowing them to quickly and effortlessly identify plants with confidence.
+            </p>
+            <div class="uploadPicture">
+                <h3 class="tryPlantDetective">Try Plant Detective Now!</h3>
+                <div class="selectBtn" id="dropArea">Drag and Drop or Click to Select Picture</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    // Get the drop area element
+    const dropArea = document.getElementById('dropArea');
+
+    // Add event listeners for drag events
+    dropArea.addEventListener('dragover', handleDragOver);
+    dropArea.addEventListener('dragleave', handleDragLeave);
+    dropArea.addEventListener('drop', handleDrop);
+
+    // Add event listener for click event
+    dropArea.addEventListener('click', handleClick);
+
+    // Function to handle the dragover event
+    function handleDragOver(event) {
+        event.preventDefault();
+        dropArea.classList.add('dragHover');
+    }
+
+    // Function to handle the dragleave event
+    function handleDragLeave(event) {
+        event.preventDefault();
+        dropArea.classList.remove('dragHover');
+    }
+
+    // Function to handle the drop event
+    function handleDrop(event) {
+        event.preventDefault();
+        dropArea.classList.remove('dragHover');
+
+        // Get the dropped file
+        const file = event.dataTransfer.files[0];
+
+        // Process the file (e.g., convert to byte array, upload, etc.)
+        processFile(file);
+    }
+
+    // Function to handle the click event
+    function handleClick() {
+        // Trigger the file input element
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.style.display = 'none';
+        document.body.appendChild(fileInput);
+
+        fileInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+
+            // Process the file (e.g., convert to byte array, upload, etc.)
+            processFile(file);
+
+            document.body.removeChild(fileInput);
+        });
+
+        fileInput.click();
+    }
+
+    // Function to process the file
+    function processFile(file) {
+        // Create a new instance of FileReader
+        const reader = new FileReader();
+
+        // Define the onload event handler
+        reader.onload = function (event) {
+            // Access the file data as an ArrayBuffer
+            const arrayBuffer = event.target.result;
+
+            // Convert the ArrayBuffer to a Uint8Array
+            const uint8Array = new Uint8Array(arrayBuffer);
+
+            // Create a form element
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/displayinformation'; // Replace 'next-page' with the actual URL of the next page
+
+            // Create a hidden input field to hold the byte array
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'imageBytes';
+            input.value = uint8Array.toString();
+
+            // Append the input field to the form
+            form.appendChild(input);
+
+            // Append the form to the document body
+            document.body.appendChild(form);
+
+            // Submit the form
+            form.submit();
+        };
+
+        // Read the file as ArrayBuffer
+        reader.readAsArrayBuffer(file);
+    }
+</script>

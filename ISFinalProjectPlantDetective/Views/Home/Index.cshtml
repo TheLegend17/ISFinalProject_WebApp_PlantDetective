@@ -1,0 +1,88 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Detective</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #a8e063;
+            background-image: linear-gradient(to bottom right, #a8e063, #56ab2f);
+            margin: 0;
+            padding: 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .innerDiv {
+            text-align: center;
+            height: 400px;
+            width: 500px;
+            border: 1px solid #000;
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .name {
+            color: #4cd038;
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .motto {
+            font-size: 25px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .startbtn {
+            width: 250px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 50px;
+        }
+
+            .startbtn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="innerDiv">
+            <h1 class="name">Plant Detective</h1>
+            <p class="motto">Discover the beauty of plants</p>
+            <button class="startbtn">Start</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var startBtn = document.querySelector('.startbtn');
+
+        startBtn.addEventListener('click', function () {
+            window.location.href = '/main'; // Replace 'next-page.html' with the URL of your next page
+        });
+    });
+</script>

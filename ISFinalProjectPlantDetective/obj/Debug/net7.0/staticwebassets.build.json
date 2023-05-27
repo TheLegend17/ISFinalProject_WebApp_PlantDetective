@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "+Zu4ulNjABQj0QehuXfXoy8qai1whhQvQ1dwVJtEATQ=",
+  "Source": "ISFinalProjectPlantDetective",
+  "BasePath": "_content/ISFinalProjectPlantDetective",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ISFinalProjectPlantDetective\\wwwroot",
+      "Source": "ISFinalProjectPlantDetective",
+      "ContentRoot": "D:\\Programming Files\\ISFinalProjectPlantDetective\\ISFinalProjectPlantDetective\\wwwroot\\",
+      "BasePath": "_content/ISFinalProjectPlantDetective",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Programming Files\\ISFinalProjectPlantDetective\\ISFinalProjectPlantDetective\\wwwroot\\images\\background.jpg",
+      "SourceId": "ISFinalProjectPlantDetective",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Programming Files\\ISFinalProjectPlantDetective\\ISFinalProjectPlantDetective\\wwwroot\\",
+      "BasePath": "_content/ISFinalProjectPlantDetective",
+      "RelativePath": "images/background.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\background.jpg"
+    }
+  ]
+}

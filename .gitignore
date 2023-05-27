@@ -1,0 +1,18 @@
+# ML.NET model files
+*.zip
+*.onnx
+*.tf
+*.pb
+*.mlmodel
+
+# ML.NET temporary files
+*.csproj.user
+*.msbuild
+*.vsprops
+*.props
+*.targets
+*.resharper.user
+
+# ML.NET output folders
+/bin/
+/obj/
